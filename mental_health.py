@@ -8,7 +8,8 @@ Original file is located at
 """
 
 pip install numpy pandas scikit-learn nltk transformers torch streamlit
-
+pip freeze > requirements.txt
+pip install -r requirements.txt
 df=pd.read_csv('/content/Combined Data.csv')
 df.head()
 
