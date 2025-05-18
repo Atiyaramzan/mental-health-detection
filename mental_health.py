@@ -129,8 +129,6 @@ y.unique().tolist()
 
 def count_vec_boost(model, text_col, max_df, max_features, ngram_range, n_estimators, max_depth=3, learning_rate=0.03, verbose = False):
     """
-
-    Parameters:
     - model: Classifier model (e.g., XGBoostClassifier, LightGBMClassifier, CatBoostClassifier)
     - text_col: Name of the text column in the dataset
     - max_df: Maximum document frequency threshold for CountVectorizer
