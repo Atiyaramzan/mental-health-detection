@@ -129,7 +129,6 @@ y.unique().tolist()
 
 def count_vec_boost(model, text_col, max_df, max_features, ngram_range, n_estimators, max_depth=3, learning_rate=0.03, verbose = False):
     """
-    Vectorizes text data using CountVectorizer, trains a classifier model, and evaluates its performance.
 
     Parameters:
     - model: Classifier model (e.g., XGBoostClassifier, LightGBMClassifier, CatBoostClassifier)
