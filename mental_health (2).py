@@ -7,11 +7,9 @@ Original file is located at
     https://colab.research.google.com/drive/1u-pOql7edDjJ9JXqk4QJceWxsaKMjTIi
 """
 
-!pip install numpy pandas
-
 !pip install numpy pandas scikit-learn nltk transformers torch streamlit
 
-pip install -r requirements.txt
+!pip install -r requirements.txt
 
 df=pd.read_csv('/Combined Data.csv')
 df.head()
