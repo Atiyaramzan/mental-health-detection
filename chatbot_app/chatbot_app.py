@@ -55,3 +55,61 @@ if user_input and vectorizer and model:
     if prediction_label == "Depression":
         st.warning("You might be showing signs of depression. Consider talking to a professional.")
         st.info(" 988 Lifeline's") # Consider adding a full link or contact info
+import pandas as pd
+
+# Load your CSV or DataFrame
+df = pd.read_csv("mental_health_dataset.csv")
+
+# Optional: Drop rows with missing values
+df.dropna(inplace=True)
+
+# Clean the text (you can reuse your clean_text function)
+def clean_text(text):
+    text = pd.Series(text).str.lower()
+    text = text.str.replace(r'[^\w\s]', '', regex=True)
+    text = text.str.replace("\n", '', regex=True)
+    text = text.str.replace('\d', '', regex=True)
+    text = text.str.replace(r'\[.*?\]', '', regex=True)
+    text = text.str.replace(r'https?://\S+|www\.\S+', '', regex=True)
+    text = text.str.replace(r'<.*?>+', '', regex=True)
+    text = text.str.replace(r'\w*\d\w*', '', regex=True)
+    text = text.str.replace(r'\s+', ' ', regex=True).str.strip()
+    return text.iloc[0]
+
+df['cleaned_text'] = df['text'].apply(clean_text)
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import LabelEncoder
+import pickle
+
+# Encode labels
+label_encoder = LabelEncoder()
+y = label_encoder.fit_transform(df['label'])
+
+# Train vectorizer
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(df['cleaned_text'])
+
+# Train classifier
+model = LogisticRegression()
+model.fit(X, y)
+# Save vectorizer
+with open("vectorizer.pkl", "wb") as f:
+    pickle.dump(vectorizer, f)
+
+# Save model
+with open("model.pkl", "wb") as f:
+    pickle.dump(model, f)
+
+# Save label encoder if you want to decode predictions
+with open("label_encoder.pkl", "wb") as f:
+    pickle.dump(label_encoder, f)
+with open("vectorizer.pkl", "rb") as f:
+    vectorizer = pickle.load(f)
+
+with open("model.pkl", "rb") as f:
+    model = pickle.load(f)
+with open("label_encoder.pkl", "rb") as f:
+    label_encoder = pickle.load(f)
+
+label = label_encoder.inverse_transform([prediction_index])[0]
