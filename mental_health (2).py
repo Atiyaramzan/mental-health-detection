@@ -360,7 +360,9 @@ y_grid = y_train)"""
 
 best_params = {'learning_rate': 0.06, 'n_estimators': 200, 'max_df': 1.0, 'max_features': 2000, 'ngram_range': (1, 3)}
 
-!pip install lightgbm
+- name: Install dependencies
+  run: pip install -r requirements.txt
+
 from lightgbm import LGBMClassifier
 
 tfidf_vec_boost(LGBMClassifier, "statement", **best_params, verbose = -1)
