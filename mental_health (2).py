@@ -69,7 +69,11 @@ df["statement"] = remove_stopwords(df["statement"])
 delete = pd.Series(' '.join(df['statement']).split()).value_counts()[-1000:]
 df['statement'] = df['statement'].apply(lambda x: " ".join(x for x in x.split() if x not in delete))
 
-!pip install spacy
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "spacy"])
+
 !python -m spacy download en_core_web_sm
 import spacy
 
