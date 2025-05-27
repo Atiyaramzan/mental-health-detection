@@ -410,7 +410,11 @@ pickle.dump(model, open("model.pkl", "wb"))
 pickle.dump(c_vectorizer, open("vectorizer.pkl", "wb")) # Changed 'vectorizer' to 'c_vectorizer'
 
 # chatbot_app.py
-!pip install streamlit # Ensure streamlit is installed
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "streamlit"])
+
 import streamlit as st
 import pickle
 
