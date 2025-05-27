@@ -409,11 +409,6 @@ pickle.dump(model, open("model.pkl", "wb"))
 # Assuming c_vectorizer is the CountVectorizer instance you want to save
 pickle.dump(c_vectorizer, open("vectorizer.pkl", "wb")) # Changed 'vectorizer' to 'c_vectorizer'
 
-!streamlit run chatbot_app.py
-
-!pip install streamlit
-!npm install -g localtunnel
-
 !streamlit run chatbot_app.py &> streamlit_log.txt &
 
 # chatbot_app.py
