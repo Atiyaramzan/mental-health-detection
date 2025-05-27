@@ -20,7 +20,6 @@ Original file is located at
 import os
 os.system("pip install numpy pandas scikit-learn nltk transformers torch streamlit")
 
-import subprocess
 df=pd.read_csv('/Combined Data.csv')
 df.head()
 
@@ -57,8 +56,6 @@ def remove_stopwords(text):
     text = text.apply(lambda x: " ".join(x for x in str(x).split() if x not in stop_words))
     return text
 
-import subprocess
-import sys
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
@@ -73,9 +70,6 @@ df["statement"] = remove_stopwords(df["statement"])
 
 delete = pd.Series(' '.join(df['statement']).split()).value_counts()[-1000:]
 df['statement'] = df['statement'].apply(lambda x: " ".join(x for x in x.split() if x not in delete))
-
-import subprocess
-import sys
 
 import spacy
 
