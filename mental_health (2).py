@@ -96,7 +96,11 @@ df.isnull().sum()
 y = df['status']
 X = df.drop('status', axis=1)
 
-!pip install scikit-learn
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "scikit-learn"])
+
 from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
