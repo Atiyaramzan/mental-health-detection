@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+requirements.txt
 streamlit
 pandas
 numpy
@@ -20,9 +21,6 @@ import os
 os.system("pip install numpy pandas scikit-learn nltk transformers torch streamlit")
 
 import subprocess
-subprocess.check_call(["pip", "install", "-r", "requirements.txt"])
-
-
 df=pd.read_csv('/Combined Data.csv')
 df.head()
 
@@ -61,9 +59,6 @@ def remove_stopwords(text):
 
 import subprocess
 import sys
-
-subprocess.check_call([sys.executable, "-m", "pip", "install", "nltk"])
-
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
@@ -82,13 +77,6 @@ df['statement'] = df['statement'].apply(lambda x: " ".join(x for x in x.split() 
 import subprocess
 import sys
 
-subprocess.check_call([sys.executable, "-m", "pip", "install", "spacy"])
-
-import subprocess
-import sys
-
-subprocess.check_call([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
-
 import spacy
 
 nlp = spacy.load('en_core_web_sm')
@@ -105,11 +93,6 @@ df.isnull().sum()
 
 y = df['status']
 X = df.drop('status', axis=1)
-
-import subprocess
-import sys
-
-subprocess.check_call([sys.executable, "-m", "pip", "install", "scikit-learn"])
 
 from sklearn.model_selection import train_test_split
 
@@ -132,11 +115,6 @@ def plot_wordcloud(text, title=None, save_path=None):
         plt.savefig(save_path, bbox_inches='tight', dpi=300)
 
     plt.show()
-
-import subprocess
-import sys
-
-subprocess.check_call([sys.executable, "-m", "pip", "install", "wordcloud"])
 
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
@@ -323,11 +301,6 @@ y_grid = y_train)"""
 
 best_hyperparameters = {'learning_rate': 0.07, 'n_estimators': 200, 'max_df': 1.0, 'max_features': 10000, 'ngram_range': (1, 3)}
 
-import subprocess
-import sys
-
-subprocess.check_call([sys.executable, "-m", "pip", "install", "xgboost"])
-
 from xgboost import XGBClassifier
 
 import seaborn as sns
@@ -405,12 +378,6 @@ if user_input:
         st.warning("You might be showing signs of depression. Consider talking to a professional.")
         st.info(" 988 Lifeline's  ")
 
-import subprocess
-import sys
-
-subprocess.check_call([sys.executable, "-m", "pip", "install", "streamlit"])
-
-
 import pickle
 
 # After training
@@ -420,10 +387,6 @@ pickle.dump(model, open("model.pkl", "wb"))
 pickle.dump(c_vectorizer, open("vectorizer.pkl", "wb")) # Changed 'vectorizer' to 'c_vectorizer'
 
 # chatbot_app.py
-import subprocess
-import sys
-
-subprocess.check_call([sys.executable, "-m", "pip", "install", "streamlit"])
 
 import streamlit as st
 import pickle
