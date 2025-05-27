@@ -395,7 +395,11 @@ if user_input:
         st.warning("You might be showing signs of depression. Consider talking to a professional.")
         st.info(" 988 Lifeline's  ")
 
-pip install streamlit
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "streamlit"])
+
 
 import pickle
 
