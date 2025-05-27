@@ -49,7 +49,11 @@ def remove_stopwords(text):
     text = text.apply(lambda x: " ".join(x for x in str(x).split() if x not in stop_words))
     return text
 
-!pip install nltk
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "nltk"])
+
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
