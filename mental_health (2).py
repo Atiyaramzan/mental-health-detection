@@ -360,8 +360,7 @@ y_grid = y_train)"""
 
 best_params = {'learning_rate': 0.06, 'n_estimators': 200, 'max_df': 1.0, 'max_features': 2000, 'ngram_range': (1, 3)}
 
-- name: Install dependencies
-  run: pip install -r requirements.txt
+lightgbm
 
 from lightgbm import LGBMClassifier
 
