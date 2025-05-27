@@ -313,7 +313,11 @@ y_grid = y_train)"""
 
 best_hyperparameters = {'learning_rate': 0.07, 'n_estimators': 200, 'max_df': 1.0, 'max_features': 10000, 'ngram_range': (1, 3)}
 
-!pip install xgboost
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "xgboost"])
+
 from xgboost import XGBClassifier
 
 import seaborn as sns
