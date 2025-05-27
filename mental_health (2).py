@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-requirements.txt
 streamlit
 pandas
 numpy
