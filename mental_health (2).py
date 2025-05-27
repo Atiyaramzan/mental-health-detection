@@ -123,7 +123,11 @@ def plot_wordcloud(text, title=None, save_path=None):
 
     plt.show()
 
-!pip install wordcloud
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "wordcloud"])
+
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
