@@ -9,7 +9,9 @@ Original file is located at
 import os
 os.system("pip install numpy pandas scikit-learn nltk transformers torch streamlit")
 
-import -r requirements.txt
+import subprocess
+subprocess.check_call(["pip", "install", "-r", "requirements.txt"])
+
 
 df=pd.read_csv('/Combined Data.csv')
 df.head()
