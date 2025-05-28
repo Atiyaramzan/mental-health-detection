@@ -24,7 +24,12 @@ import streamlit as st
 import os
 os.system("pip install numpy pandas scikit-learn nltk transformers torch streamlit")
 
-df = pd.read_csv('Combined Data.csv')
+import zipfile
+import pandas as pd
+
+with zipfile.ZipFile("data.zip") as z:
+    with z.open("Combined Data.csv") as f:
+        df = pd.read_csv(f)
 
 df.head()
 
