@@ -58,7 +58,7 @@ if user_input and vectorizer and model:
 import pandas as pd
 
 # Load your CSV or DataFrame
-df = pd.read_csv("mental_health_dataset.csv")
+df = pd.read_csv(compressed_data.csv.gz")
 
 # Optional: Drop rows with missing values
 df.dropna(inplace=True)
