@@ -1,0 +1,10 @@
+pandas
+numpy
+nltk
+spacy
+scikit-learn
+matplotlib
+wordcloud
+xgboost
+lightgbm
+streamlit
