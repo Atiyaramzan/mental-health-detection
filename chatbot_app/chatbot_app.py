@@ -58,6 +58,10 @@ if user_input and vectorizer and model:
 import pandas as pd
 
 # Load your CSV or DataFrame
+import os
+base_path = os.path.dirname(__file__)
+file_path = os.path.join(base_path, "Combined Data.csv.zip")
+
 df = pd.read_csv("Combined Data.csv.zip")
 
 # Optional: Drop rows with missing values
